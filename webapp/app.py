@@ -30,12 +30,15 @@ def status():
         db_status = "OK"
     except Exception as e:
         db_status = f"Error: {str(e)}"
-    
-    return jsonify({
+
+    status_data = {
         "status": "running",
         "db_status": db_status,
         "host": os.uname().nodename
-    })
+    }
+
+    return render_template('status.html', status_data=status_data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=config['server']['port'])
+

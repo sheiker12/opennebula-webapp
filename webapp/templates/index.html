@@ -1,11 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>приложуха</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Простое, но полезное веб-приложение с информацией о статусе">
+  <title>Ваше Крутое Веб-Приложение</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .hero {
+        background-color: #ddd;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .lead {
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .feature {
+        width: 30%;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <h1>привет чел</h1>
-    <p>фурычит вроде</p>
-    <p>смотри <a href="/status">status page</a> для детале</p>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/status">Статус</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Добро пожаловать!</h1>
+      <p class="lead">Вы попали на страницу простого, но полезного веб-приложения.</p>
+      <p>Вроде бы работает... но лучше перепроверить!</p>
+      <a href="/status" class="button">Проверить Статус</a>
+    </section>
+
+    <section class="features">
+      <h2>Основные возможности</h2>
+      <div class="feature">
+        <h3>Мониторинг Статуса</h3>
+        <p>Быстрая проверка текущего состояния приложения.</p>
+      </div>
+      <div class="feature">
+        <h3>Простота Использования</h3>
+        <p>Интуитивно понятный интерфейс для легкого доступа к информации.</p>
+      </div>
+      <div class="feature">
+        <h3>Подробная Информация</h3>
+        <p>Получите детальные сведения о работе приложения на странице статуса.</p>
+      </div>
+    </section>
+  </main>
+
+
 </body>
 </html>
+
+

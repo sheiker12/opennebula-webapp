@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статус Приложения</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f8f9fa; /* Мягкий фон */
+      color: #495057; /* Более читаемый цвет текста */
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #343a40;
+    }
+
+    .status-item {
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center; /* Выравнивание по вертикали */
+    }
+
+    .status-label {
+      font-weight: bold;
+      width: 150px; /* Фиксированная ширина для выравнивания */
+      margin-right: 15px;
+      color: #546e7a;
+    }
+
+    .status-value {
+      font-size: 1.1em;
+    }
+
+    /* Цвета для разных статусов */
+    .status-ok {
+      color: #28a745; /* Зеленый */
+    }
+
+    .status-error {
+      color: #dc3545; /* Красный */
+    }
+
+    .status-running {
+      color: #007bff; /* Синий */
+    }
+
+     footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #6c757d;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Статус Приложения</h1>
+
+    <div class="status-item">
+      <span class="status-label">Статус Приложения:</span>
+      <span class="status-value status-running">{{ status_data.status }}</span>
+    </div>
+
+    <div class="status-item">
+      <span class="status-label">Статус Базы Данных:</span>
+      <span class="status-value" {% if status_data.db_status == "OK" %}class="status-ok"{% else %}class="status-error"{% endif %}>{{ status_data.db_status }}</span>
+    </div>
+
+    <div class="status-item">
+      <span class="status-label">Хост:</span>
+      <span class="status-value">{{ status_data.host }}</span>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
