@@ -1,7 +1,7 @@
+import netifaces
 from flask import Flask, jsonify, render_template
 import psycopg2
 import toml
-import os
 
 app = Flask(__name__)
 
@@ -17,6 +17,25 @@ def get_db_connection():
     )
     return conn
 
+def get_eth0_ip():
+    """Получает IP-адрес интерфейса eth0."""
+    try:
+        interfaces = netifaces.interfaces()
+        if 'eth0' not in interfaces:
+            return "Интерфейс eth0 не найден"
+
+        iface = 'eth0'
+        addresses = netifaces.ifaddresses(iface)
+
+        if netifaces.AF_INET not in addresses:
+            return "Интерфейс eth0 не имеет IPv4-адреса"
+
+        ip_address = addresses[netifaces.AF_INET][0]['addr']
+        return ip_address
+
+    except Exception as e:
+        return f"Ошибка: {str(e)}"
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -31,10 +50,12 @@ def status():
     except Exception as e:
         db_status = f"Error: {str(e)}"
 
+    host_ip = get_eth0_ip()
+
     status_data = {
         "status": "running",
         "db_status": db_status,
-        "host": os.uname().nodename
+        "host": host_ip
     }
 
     return render_template('status.html', status_data=status_data)
