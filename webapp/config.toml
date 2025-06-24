@@ -1,7 +1,7 @@
 [database]
 host = "172.16.100.4"
 port = 5432
-user = "webapp"
+user = "webapp_user"
 password = "securepassword"  # Убедитесь, что пароль совпадает с установленным в PostgreSQL
 dbname = "webapp_db"
 
